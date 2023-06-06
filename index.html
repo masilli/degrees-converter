@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conversor de graus celsius para fahrenheit e kelvin">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Filipe Freitas">
+    <title>Conversor de temperaturas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            TempºConvert
+        </div>
+        <div id="calculadora">
+            <div class="visor">
+                <div id="valor"></div>&nbsp;
+                <div class="graus" id="grau1">ºC</div>
+            </div>
+            <div class="teclado">
+                <div class="numeros">
+                    <button type="button" value="1">1</button>
+                    <button type="button" value="2">2</button>
+                    <button type="button" value="3">3</button>
+                    <button type="button" value="4">4</button>
+                    <button type="button" value="5">5</button>
+                    <button type="button" value="6">6</button>
+                    <button type="button" value="7">7</button>
+                    <button type="button" value="8">8</button>
+                    <button type="button" value="9">9</button>
+                    <button type="button" value="0">0</button>
+                    <button type="button" value="." class="oper">.</button>
+                    <button type="button" value="-" class="oper">-</button>
+                </div>
+                <div class="escolha">
+                    <div>
+                        <input type="radio" id="c" name="temp" value="tempc" checked>
+                        <label for="c">C</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="f" name="temp" value="tempf">
+                        <label for="f">F</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="k" name="temp" value="tempk">
+                        <label for="k">K</label>
+                    </div>
+                </div>
+                <button type="button" id="clear" onclick="clearValor()">CLEAR</button>
+            </div>
+        </div>
+        <div class="title">
+            Resultados
+        </div>
+        <div id="resultado">
+            <div class="visor">
+                <span id="result1"></span>&nbsp;
+                <span class="graus" id="grau2">ºF</span>
+            </div>
+            <div class="visor">
+                <span id="result2"></span>&nbsp;
+                <span class="graus" id="grau3">ºK</span>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

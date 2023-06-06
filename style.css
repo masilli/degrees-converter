@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    display: grid;
+    place-items: center;
+    background-color: #eee;
+    font-family: "Orbitron", sans-serif;
+}
+
+#calculadora {
+    padding: 1rem;
+    border-radius: 2rem;
+    background-color: #ccc;
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+.visor {
+    padding: .8rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+    background-color: #111;
+    width: 100%;
+    height: 70px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 1.5rem;
+}
+
+.teclado {
+    padding: 1rem;
+    border-radius: 0 0 1.5rem 1.5rem;
+    background-color: #aaa;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.numeros {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.8rem;
+    border-radius: 1rem;
+    width: calc(75% - 0.5rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.escolha {
+    width: 25%;
+    background-color: #666;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+button {
+    padding: .8rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: #ddd;
+    background: radial-gradient(circle, #ddd 20%, #999 100%);
+    color: #111;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif;
+    transition: all 0.15s ease-in-out;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.numeros>button {
+    width: calc(33% - 0.5rem);
+}
+
+button.oper {
+    background: #999;
+    background: radial-gradient(circle, #999 20%, #666 100%);
+}
+
+button:hover {
+    scale: 1.1;
+}
+
+button:active {
+    scale: 0.9;
+    background: #444;
+    color: #eee;
+}
+
+button#clear {
+    flex-grow: 1;
+    background: #777;
+    background: radial-gradient(circle, #777 20%, #555 100%);
+}
+
+button#clear:hover {
+    scale: 1.02;
+    background: #90ee90;
+    background: radial-gradient(circle, #90ee90 20%, #2d6f2d 100%);
+}
+
+button#clear:active {
+    scale: 0.95;
+    background: #2d6f2d;
+    background: radial-gradient(circle, #2d6f2d 20%, #0b4c0a 100%);
+}
+
+#resultado {
+    padding: .8rem;
+    border-radius: 1.5rem;
+    background-color: #ccc;
+    width: 400px;
+}
+
+#resultado .visor {
+    border-radius: 1rem;
+    margin: 0;
+}
+
+#resultado div:first-child {
+    margin-bottom: 20px;
+}
+
+#resultado * {
+    color: #90ee90;
+}
+
+.title {
+    text-align: center;
+    background-color: #c3c3c3;
+    width: 80%;
+    padding: 1rem;
+    margin: auto;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    border-radius: 1.5rem 1.5rem 0 0;
+    color: #999;
+    text-shadow: 1px 1px 0px #eee, -1px -1px 0px #333;
+}
+
+#calculadora,
+.title,
+#resultado {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* --- botoes radio --- */
+.escolha input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.escolha div {
+    flex-basis: 100%;
+}
+
+.escolha label {
+    height: 100%;
+    padding: .8rem;
+    border: 4px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    background: rgb(204, 204, 204);
+    background: radial-gradient(circle, #ccc 20%, #999 100%);
+    color: #999;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    display: grid;
+    place-items: center;
+}
+
+.escolha input:checked~label {
+    background: #333;
+    background: radial-gradient(circle, #666 20%, #333 100%);
+    color: #eee;
+    border: 6px solid #90ee90;
+    box-shadow: 0px 0px 6px #90ee90;
+}
+
+/* --- animacao --- */
+.turn {
+    animation: turn 0.8s ease;
+}
+
+@keyframes turn {
+    0% {
+        scale: 1;
+        rotate: 0deg;
+    }
+
+    25%,
+    50% {
+        scale: 2;
+        rotate: 360deg;
+    }
+
+    100% {
+        scale: 1;
+        rotate: 360deg;
+        /*rotate: 720deg;*/
+    }
+}
+
+/* --- mobile --- */
+@media screen and (max-width: 767px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /*justify-content: center;*/
+    }
+
+    .container {
+        margin: 5vh auto;
+    }
+
+    #calculadora,
+    #resultado {
+        border-radius: 1.4rem;
+        width: 80vw;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #calculadora {
+        margin-bottom: 20px;
+    }
+
+    button {
+        width: 60px;
+        padding: 0.8rem;
+        font-size: 1.2rem;
+        transition: all 0.1s ease;
+    }
+
+    .title {
+        width: 80%;
+        border-radius: 1rem 1rem 0 0;
+        padding: 0.8rem;
+        font-size: 0.8rem;
+        text-shadow: 0.03rem 0.03rem 0 #eee, -0.03rem -0.03rem 0 #333;
+        margin: 0 auto;
+    }
+
+    .visor {
+        border-radius: 1rem 1rem 0 0;
+        padding: 0.6rem;
+        height: 50px;
+    }
+
+    #valor,
+    #result1,
+    #result2 {
+        font-size: 1.2rem;
+    }
+
+    .visor .graus {
+        font-size: 1.1rem;
+    }
+
+    .escolha {
+        padding: 0.8rem 0.4rem;
+        border-radius: 0.6rem;
+    }
+
+    .escolha label {
+        padding: 0.5rem;
+        border-radius: 0.4rem;
+        font-size: 1.1rem;
+    }
+}
